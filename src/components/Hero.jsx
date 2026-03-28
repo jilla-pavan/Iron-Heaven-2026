@@ -1,109 +1,170 @@
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Star, Dumbbell, Trophy } from 'lucide-react'
 
-const heroImage =
-  'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1600'
+const BEBAS = { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.03em' }
+const OSWALD = { fontFamily: "'Oswald', sans-serif" }
+
+function FitLine({ children, className = '', delay = 0 }) {
+  const wrapRef = useRef(null)
+  const spanRef = useRef(null)
+
+  useEffect(() => {
+    const fit = () => {
+      const wrap = wrapRef.current
+      const span = spanRef.current
+      if (!wrap || !span) return
+      span.style.fontSize = '200px'
+      const ratio = wrap.clientWidth / span.scrollWidth
+      span.style.fontSize = `${200 * ratio}px`
+    }
+    fit()
+    const ro = new ResizeObserver(fit)
+    if (wrapRef.current) ro.observe(wrapRef.current)
+    return () => ro.disconnect()
+  }, [children])
+
+  return (
+    <div ref={wrapRef} className="w-full overflow-hidden">
+      <motion.span
+        ref={spanRef}
+        className={`block whitespace-nowrap leading-[0.95] ${className}`}
+        style={BEBAS}
+        initial={{ y: '105%', opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.span>
+    </div>
+  )
+}
+
+const stats = ['Premium Equipment', 'Expert Coaching', 'Real Transformations']
+
+const badges = [
+  { icon: Star, label: '4.8+ Google Rating' },
+  { icon: Dumbbell, label: 'Expert Trainers' },
+  { icon: Trophy, label: 'Proven Results' },
+]
 
 function Hero() {
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-black via-[#050509] to-black scroll-mt-24 md:scroll-mt-28"
-    >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-red-500/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-red-700/20 blur-3xl" />
-      </div>
+    <section id="home" className="relative isolate overflow-hidden min-h-screen flex flex-col justify-center">
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 pb-16 pt-12 md:flex-row md:gap-8 md:pt-16 lg:pt-20">
+      {/* Background */}
+      <img
+        src="https://images.pexels.com/photos/685531/pexels-photo-685531.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        alt=""
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+      />
+      <div className="absolute inset-0 -z-10 bg-black/65" />
+      {/* bottom fade */}
+      <div className="absolute bottom-0 inset-x-0 -z-10 h-32 bg-linear-to-t from-black to-transparent" />
+
+      <div className="relative flex flex-col items-center text-center px-4 sm:px-6 pt-20 pb-16 sm:py-16">
+
+        {/* Top badge */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex-1 space-y-6"
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-6 w-full flex flex-wrap justify-center items-center gap-2.5 px-5 py-2 text-center"
+          style={{ ...OSWALD, fontSize: 'clamp(0.7rem, 2.5vw, 0.95rem)', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#fca5a5' }}
         >
-          <p className="inline-flex items-center rounded-full border border-red-500/40 bg-red-500/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-red-300">
-            Built for serious lifters
-          </p>
-
-          <h1 className="text-balance text-4xl font-extrabold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl">
-            Elevate your strength at{' '}
-            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-              Iron Heaven Gym
-            </span>
-          </h1>
-
-          <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-            A premium strength and conditioning club in the heart of Malkajgiri. Built for athletes, professionals,
-            and anyone serious about transforming their body and mindset.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-300">
-            <span className="rounded-full border border-white/10 px-3 py-1">
-              5:00 AM – 10:00 PM
-            </span>
-            <span className="rounded-full border border-white/10 px-3 py-1">
-              1st floor, Mirjalguda Main Rd, Secunderabad
-            </span>
-            <span className="rounded-full border border-white/10 px-3 py-1">
-              Strength • CrossFit • Conditioning
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href="#contact"
-              className="rounded-full bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-white shadow-soft-red hover:brightness-110"
-            >
-              Book a free trial
-            </a>
-            <a
-              href="https://wa.me/919440152470"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs font-medium text-slate-200 hover:text-red-400"
-            >
-              WhatsApp us for membership details →
-            </a>
-          </div>
+          <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+          Secunderabad's Most Trusted Fitness Destination
         </motion.div>
 
+        {/* Heading */}
+        <div className="w-full">
+          <FitLine className="text-white" delay={0.15}>
+            Elevate your <span style={{ background: 'rgba(90,90,100,0.5)', color: '#94a3b8', padding: '0 0.12em', borderRadius: '0.08em' }}>strength</span> at
+          </FitLine>
+          <FitLine
+            className="bg-linear-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent"
+            delay={0.3}
+          >
+            Iron Heaven Gym
+          </FitLine>
+        </div>
+
+        {/* Red divider */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-          className="flex-1"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
+          className="mt-5 h-0.5 w-24 rounded-full bg-linear-to-r from-red-500 to-red-700 origin-left"
+        />
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.52 }}
+          className="mt-4 w-full flex flex-wrap justify-center items-center gap-x-4 gap-y-1.5 sm:gap-x-6"
         >
-          <div className="relative mx-auto max-w-md">
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-red-500/30 via-transparent to-red-600/20 blur-2xl" />
-            <div className="overflow-hidden rounded-3xl border border-white/8 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl shadow-red-900/40">
-              <img
-                src={heroImage}
-                alt="Athlete lifting weights at Iron Heaven Gym"
-                className="h-80 w-full object-cover sm:h-96"
-              />
-              <div className="flex items-center justify-between border-t border-white/10 bg-black/60 px-4 py-3 text-[11px] text-slate-200">
-                <div>
-                  <p className="font-semibold uppercase tracking-[0.18em] text-red-300">
-                    Iron Heaven Gym
-                  </p>
-                  <p className="text-[10px] text-slate-400">
-                    Strength • CrossFit • Conditioning • Personal Coaching
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-[10px] text-slate-400">Call for memberships</p>
-                  <p className="font-semibold text-slate-100">+91 94401 52470</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          {stats.map((s, i) => (
+            <span key={s} className="inline-flex items-center gap-2 sm:gap-4">
+              <span style={{ ...OSWALD, fontSize: 'clamp(0.7rem, 2.8vw, 1.2rem)', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)' }}>
+                {s}
+              </span>
+              {i < stats.length - 1 && (
+                <span className="h-1 w-1 rounded-full bg-red-500 hidden sm:inline-block" />
+              )}
+            </span>
+          ))}
         </motion.div>
+
+        {/* Feature badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.62 }}
+          className="mt-4 w-full grid grid-cols-1 sm:grid-cols-3 gap-3"
+        >
+          {badges.map(({ icon: Icon, label }) => (
+            <span
+              key={label}
+              className="flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 sm:px-5 sm:py-3 backdrop-blur-sm"
+              style={{ ...OSWALD, fontSize: 'clamp(0.75rem, 2.8vw, 1.05rem)', fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', color: 'white' }}
+            >
+              <Icon size={18} className="text-red-400 shrink-0" />
+              {label}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.72 }}
+          className="mt-5 w-full flex flex-wrap justify-center items-center gap-4"
+        >
+          <a
+            href={`https://wa.me/919440152470?text=${encodeURIComponent("Hi! I'd like to book a free trial session at Iron Heaven Gym, Malkajgiri.")}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-7 py-3 sm:px-10 sm:py-3.5 text-white shadow-xl shadow-red-900/50 hover:bg-red-500 hover:scale-[1.03] transition-all duration-200"
+            style={{ ...OSWALD, fontSize: 'clamp(0.9rem, 3.5vw, 1.25rem)', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+          >
+            Book a Free Trial →
+          </a>
+          <a
+            href={`https://wa.me/919440152470?text=${encodeURIComponent("Hi! I'd like to know more about Iron Heaven Gym, Malkajgiri.")}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/8 px-5 py-3 sm:px-8 sm:py-3.5 text-white hover:bg-white/15 transition-all duration-200 backdrop-blur-sm"
+            style={{ ...OSWALD, fontSize: 'clamp(0.85rem, 3vw, 1.1rem)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}
+          >
+            WhatsApp Us →
+          </a>
+        </motion.div>
+
       </div>
     </section>
   )
 }
 
 export default Hero
-

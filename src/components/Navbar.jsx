@@ -4,11 +4,8 @@ import { motion } from 'framer-motion'
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'programs', label: 'Programs' },
-  { id: 'facilities', label: 'Facilities' },
-  { id: 'trainers', label: 'Trainers' },
-  { id: 'pricing', label: 'Membership' },
-  { id: 'gallery', label: 'Gallery' },
+  { id: 'pricing', label: 'Pricing' },
+  { id: 'transformations', label: 'Transformations' },
   { id: 'contact', label: 'Contact' },
 ]
 
