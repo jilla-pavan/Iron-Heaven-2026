@@ -100,8 +100,36 @@ function Contact() {
               <p className="text-[10px] font-semibold uppercase tracking-widest text-red-400 mb-1.5" style={OSWALD}>
                 Working Hours
               </p>
-              <p className="text-base font-semibold text-slate-200" style={POPPINS}>5:00 AM – 10:00 PM</p>
-              <p className="text-xs text-slate-600 mt-1" style={POPPINS}>Open all 7 days · No holidays</p>
+              <dl className="grid gap-2 text-sm text-slate-200 leading-6" style={POPPINS}>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Friday</dt>
+                  <dd>5:30–11 am, 5:30–10 pm</dd>
+                </div>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Saturday</dt>
+                  <dd>5:30–11 am, 5:30–10 pm</dd>
+                </div>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Sunday</dt>
+                  <dd>5:30–11 am</dd>
+                </div>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Monday</dt>
+                  <dd>5:30–11 am, 5:30–10 pm</dd>
+                </div>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Tuesday</dt>
+                  <dd>5:30–11 am, 5:30–10 pm</dd>
+                </div>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Wednesday</dt>
+                  <dd>5:30–11 am, 5:30–10 pm</dd>
+                </div>
+                <div className="flex items-start gap-2">
+                  <dt className="min-w-[7rem] font-semibold text-white">Thursday</dt>
+                  <dd>5:30–11 am, 5:30–10 pm</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </motion.div>
