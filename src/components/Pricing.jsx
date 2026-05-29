@@ -180,7 +180,7 @@ function PlanCard({ plan, i }) {
 
         {/* CTA */}
         <a
-          href={`https://wa.me/919440152470?text=${encodeURIComponent(`Hi! I'm interested in the ${plan.name} plan at Iron Heaven Gym. Please share more details.`)}`}
+          href={`https://wa.me/918143203500?text=${encodeURIComponent(`Hi! I'm interested in the ${plan.name} plan at Iron Heaven Gym. Please share more details.`)}`}
           target="_blank"
           rel="noreferrer"
           className={`mt-auto block rounded-xl py-2.5 text-center text-xs font-bold uppercase tracking-[0.14em] transition-all duration-200 ${

@@ -76,7 +76,7 @@ function Navbar() {
             </button>
           ))}
           <a
-            href="tel:+919440152470"
+            href="tel:+918143203500"
             className="rounded-full bg-gradient-to-r from-red-500 to-red-600 px-4 py-2 text-[11px] font-semibold uppercase tracking-wide text-white shadow-soft-red hover:brightness-110"
           >
             Call Now
@@ -129,7 +129,7 @@ function Navbar() {
               </button>
             ))}
             <a
-              href="tel:+919440152470"
+              href="tel:+918143203500"
               className="mt-1 rounded-full bg-gradient-to-r from-red-500 to-red-600 px-4 py-2 text-center text-xs font-semibold uppercase tracking-wide text-white shadow-soft-red"
             >
               Call Now

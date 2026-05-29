@@ -73,7 +73,7 @@ function Hero() {
           style={{ ...OSWALD, fontSize: 'clamp(0.7rem, 2.5vw, 0.95rem)', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#fca5a5' }}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
-          Secunderabad's Most Trusted Fitness Destination
+          Malkajgiri's Most Trusted Fitness Destination
         </motion.div>
 
         {/* Heading */}
@@ -143,7 +143,7 @@ function Hero() {
           className="mt-5 w-full flex flex-wrap justify-center items-center gap-4"
         >
           <a
-            href={`https://wa.me/919440152470?text=${encodeURIComponent("Hi! I'd like to book a free trial session at Iron Heaven Gym, Malkajgiri.")}`}
+            href={`https://wa.me/918143203500?text=${encodeURIComponent("Hi! I'd like to book a free trial session at Iron Heaven Gym, Malkajgiri.")}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-7 py-3 sm:px-10 sm:py-3.5 text-white shadow-xl shadow-red-900/50 hover:bg-red-500 hover:scale-[1.03] transition-all duration-200"
@@ -152,7 +152,7 @@ function Hero() {
             Book a Free Trial →
           </a>
           <a
-            href={`https://wa.me/919440152470?text=${encodeURIComponent("Hi! I'd like to know more about Iron Heaven Gym, Malkajgiri.")}`}
+            href={`https://wa.me/918143203500?text=${encodeURIComponent("Hi! I'd like to know more about Iron Heaven Gym, Malkajgiri.")}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/8 px-5 py-3 sm:px-8 sm:py-3.5 text-white hover:bg-white/15 transition-all duration-200 backdrop-blur-sm"

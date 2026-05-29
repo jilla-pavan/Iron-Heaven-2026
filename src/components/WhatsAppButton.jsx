@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const WA_LINK = `https://wa.me/919440152470?text=${encodeURIComponent("Hi! I'd like to know more about Iron Heaven Gym, Malkajgiri.")}`
+const WA_LINK = `https://wa.me/918143203500?text=${encodeURIComponent("Hi! I'd like to know more about Iron Heaven Gym, Malkajgiri.")}`
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif" }
 

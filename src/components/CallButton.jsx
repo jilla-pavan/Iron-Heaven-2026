@@ -27,7 +27,7 @@ export default function CallButton() {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-          className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3"
+          className="hidden md:flex fixed bottom-6 left-6 z-50 flex-col items-start gap-3"
         >
           {/* Tooltip */}
           <AnimatePresence>
@@ -51,7 +51,7 @@ export default function CallButton() {
 
           {/* Button */}
           <motion.a
-            href="tel:+919440152470"
+            href="tel:+918143203500"
             onHoverStart={() => setShowTooltip(true)}
             onHoverEnd={() => setShowTooltip(false)}
             whileHover={{ scale: 1.12 }}

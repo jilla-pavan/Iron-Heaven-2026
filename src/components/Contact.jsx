@@ -5,7 +5,7 @@ const BEBAS = { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.03em' 
 const OSWALD = { fontFamily: "'Oswald', sans-serif" }
 const POPPINS = { fontFamily: "'Poppins', sans-serif" }
 
-const WA_NUMBER = '919440152470'
+const WA_NUMBER = '918143203500'
 const WA_ENQUIRY = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi! I'd like to enquire about membership at Iron Heaven Gym, Malkajgiri. Please share more details.")}`
 const WA_TRIAL   = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi! I'd like to book a free trial session at Iron Heaven Gym, Malkajgiri.")}`
 const WA_PHONE   = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi! I found your number and would like to know more about Iron Heaven Gym.")}`
@@ -69,7 +69,7 @@ function Contact() {
               <p className="text-base text-slate-300 leading-relaxed" style={POPPINS}>
                 1st floor, Mirjalguda Main Rd,<br />
                 New Mirjalguda, Malkajgiri,<br />
-                Secunderabad, Telangana 500047
+                Malkajgiri, Telangana 500047
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ function Contact() {
                 Phone
               </p>
               <p className="text-base font-semibold text-slate-200" style={POPPINS}>
-                +91 94401 52470
+                +91 81432 03500
               </p>
               <p className="text-[11px] text-green-400 mt-1" style={POPPINS}>Tap to WhatsApp →</p>
             </div>
@@ -144,7 +144,7 @@ function Contact() {
         >
           <iframe
             title="Iron Heaven Gym Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.507916667915!2d78.526!3d17.532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9c3b3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sMirjalguda%20Main%20Rd%2C%20New%20Mirjalguda%2C%20Malkajgiri%2C%20Secunderabad%2C%20Telangana%20500047!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.507916667915!2d78.526!3d17.532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9c3b3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sMirjalguda%20Main%20Rd%2C%20New%20Mirjalguda%2C%20Malkajgiri%2C%20Malkajgiri%2C%20Telangana%20500047!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="h-56 sm:h-72 w-full border-0"
