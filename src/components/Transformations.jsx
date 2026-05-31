@@ -1,27 +1,34 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import client1Before from "../assets/client-1-before.jpeg";
+import client1After from "../assets/client-1-after.jpeg";
+import client2Before from "../assets/client-2-before.jpeg";
+import client2After from "../assets/client-2-after.jpeg";
 
-const BEBAS = { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.03em' }
-const OSWALD = { fontFamily: "'Oswald', sans-serif" }
-const POPPINS = { fontFamily: "'Poppins', sans-serif" }
+const BEBAS = {
+  fontFamily: "'Bebas Neue', sans-serif",
+  letterSpacing: "0.03em",
+};
+const OSWALD = { fontFamily: "'Oswald', sans-serif" };
+const POPPINS = { fontFamily: "'Poppins', sans-serif" };
 
 const transformations = [
   {
-    name: 'Client 1',
-    before: '/images/client-1-before.jpeg',
-    after: '/images/client-1-after.jpeg',
-    result: 'Real Transformation',
-    detail: 'Weight Loss Journey',
-    duration: '6 Months',
+    name: "Client 1",
+    before: client1Before,
+    after: client1After,
+    result: "Real Transformation",
+    detail: "Weight Loss Journey",
+    duration: "6 Months",
   },
   {
-    name: 'Client 2',
-    before: '/images/client-2-before.jpeg',
-    after: '/images/client-2-after.jpeg',
-    result: 'Real Strength Gain',
-    detail: 'Muscle & Confidence',
-    duration: '5 Months',
+    name: "Client 2",
+    before: client2Before,
+    after: client2After,
+    result: "Real Strength Gain",
+    detail: "Muscle & Confidence",
+    duration: "5 Months",
   },
-]
+];
 
 function TransformCard({ t }) {
   return (
@@ -61,24 +68,39 @@ function TransformCard({ t }) {
       {/* Info */}
       <div className="px-5 py-4 flex items-center justify-between gap-3">
         <div>
-          <p className="text-sm font-semibold text-slate-100 uppercase tracking-wider" style={OSWALD}>
+          <p
+            className="text-sm font-semibold text-slate-100 uppercase tracking-wider"
+            style={OSWALD}
+          >
             {t.name}
           </p>
-          <p className="text-xs text-slate-600 mt-0.5" style={POPPINS}>{t.detail}</p>
+          <p className="text-xs text-slate-600 mt-0.5" style={POPPINS}>
+            {t.detail}
+          </p>
         </div>
         <div className="text-right shrink-0">
-          <p className="text-2xl leading-none text-red-400" style={BEBAS}>{t.result}</p>
-          <p className="text-[10px] text-slate-600 mt-1 uppercase tracking-widest" style={OSWALD}>
+          <p className="text-2xl leading-none text-red-400" style={BEBAS}>
+            {t.result}
+          </p>
+          <p
+            className="text-[10px] text-slate-600 mt-1 uppercase tracking-widest"
+            style={OSWALD}
+          >
             {t.duration}
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // duplicate for seamless loop
-const items = [...transformations, ...transformations]
+const items = [
+  ...transformations,
+  ...transformations,
+  ...transformations,
+  ...transformations,
+];
 
 function Transformations() {
   return (
@@ -98,13 +120,23 @@ function Transformations() {
       >
         <span
           className="inline-flex items-center gap-3"
-          style={{ ...OSWALD, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.24em', textTransform: 'uppercase', color: '#f87171' }}
+          style={{
+            ...OSWALD,
+            fontSize: "0.75rem",
+            fontWeight: 700,
+            letterSpacing: "0.24em",
+            textTransform: "uppercase",
+            color: "#f87171",
+          }}
         >
           <span className="h-px w-8 bg-red-500" />
           Transformations
           <span className="h-px w-8 bg-red-500" />
         </span>
-        <h2 className="text-4xl text-white sm:text-5xl lg:text-6xl" style={BEBAS}>
+        <h2
+          className="text-4xl text-white sm:text-5xl lg:text-6xl"
+          style={BEBAS}
+        >
           Real Results. <span className="text-red-500">Real</span> Members.
         </h2>
       </motion.div>
@@ -118,9 +150,13 @@ function Transformations() {
 
         <div
           className="flex gap-5 w-max"
-          style={{ animation: 'marquee 30s linear infinite' }}
-          onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
-          onMouseLeave={e => e.currentTarget.style.animationPlayState = 'running'}
+          style={{ animation: "marquee 30s linear infinite" }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.animationPlayState = "paused")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.animationPlayState = "running")
+          }
         >
           {items.map((t, i) => (
             <TransformCard key={i} t={t} />
@@ -137,7 +173,8 @@ function Transformations() {
         className="mt-10 text-center text-[11px] text-slate-700 px-4"
         style={POPPINS}
       >
-        Results vary by individual · All members trained at Iron Heaven Gym, Malkajgiri
+        Results vary by individual · All members trained at Iron Heaven Gym,
+        Malkajgiri
       </motion.p>
 
       <style>{`
@@ -147,7 +184,7 @@ function Transformations() {
         }
       `}</style>
     </section>
-  )
+  );
 }
 
-export default Transformations
+export default Transformations;
